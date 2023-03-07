@@ -4,9 +4,10 @@ local shouldReverse = true
 CreateThread(function()
     while true do
         local vehicle = GetVehiclePedIsIn(PlayerPedId())
+        local speed = GetEntitySpeed(vehicle) * 2.236936
         if not vehicle then goto continue end
 
-        local speed = GetEntitySpeed(vehicle) * 2.236936
+        
         if braking and speed > 0 then
             shouldReverse = false
         else
